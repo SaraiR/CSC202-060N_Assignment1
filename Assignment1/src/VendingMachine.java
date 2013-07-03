@@ -1,4 +1,7 @@
-
+import java.io.FileNotFoundException;
+import java.util.Date;
+import java.util.Scanner;
+import java.io.*;
 public class VendingMachine {
 
 		private String machineID;
@@ -6,6 +9,7 @@ public class VendingMachine {
 		private boolean status = true;
 		private	Dispenser[] products;
 		
+		     		
 		public VendingMachine(){
 			this.machineID = "No name";
 			this.totalSales = 0.00;
@@ -44,6 +48,30 @@ public class VendingMachine {
 					 + " $" +products[i].getFoodItem().getPrice() + "\n";
 			}
 			return menu;
+		}
+		public void readInventory(){
+			
+			Date d = new Date();
+       			String fileName = d.toString().replace(':', '_');
+			Scanner inFP = null;
+			try{
+			     inFP= new Scanner (new File (fileName));
+			}
+			catch(FileNotFoundException e){
+				System.out.println("Error openin the file" + fileName);
+				System.exit (0);
+			}
+		}
+		
+		public void writeInventory(){
+			
+			Date d = new Date();
+       			String fileName = d.toString().replace(':', '_');
+       			
+       			PrintWriter outFP = null;
+       			try{
+       				outFP=
+       			}
 		}
 		
 }
